@@ -1,0 +1,12 @@
+﻿{
+  "ID":"BC3E148BFBA642789A71EEEAF412A5D7", 
+  "ActionKeyword":"aws",                   
+  "Name":"AWS Toolkit",                    
+  "Description":"Wox Plugin for AWS Console",
+  "Author":"mikemorain",                    
+  "Version":"0.1.0",                        
+  "Language":"csharp",                      
+  "Website":"http://www.getwox.com",        
+  "IcoPath": "images\\aws.png",             
+  "ExecuteFileName":"Wox.Plugin.AwsToolkit.dll"  
+}
