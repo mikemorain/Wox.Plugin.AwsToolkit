@@ -22,23 +22,25 @@ namespace Wox.Plugin.AwsToolkit
             var searchList = _services.Where(x => x.Title.ToLower().Contains(keyword));
             foreach (var s in searchList)
             {
-                var r = new Result();
-                r.Title = s.Title;
-                r.SubTitle = s.Subtitle;
-                r.IcoPath = $"{_pluginDirectory}\\images\\{s.Title}.png";
-                r.Action = c =>
+                var r = new Result
                 {
-                    try
+                    Title = s.Title,
+                    SubTitle = s.Subtitle,
+                    IcoPath = $"{_pluginDirectory}\\images\\{s.Title}.png",
+                    Action = c =>
                     {
-                        Process.Start(s.Url);
-                        return true;
-                    }
-                    catch (Exception)
-                    {
-                        return false;
-                    }
+                        try
+                        {
+                            Process.Start(s.Url);
+                            return true;
+                        }
+                        catch (Exception)
+                        {
+                            return false;
+                        }
+                    },
+                    ContextData = s
                 };
-                r.ContextData = s;
                 results.Add(r);
             }
 
@@ -59,7 +61,6 @@ namespace Wox.Plugin.AwsToolkit
                 {
                     _services = deserializer.Deserialize<List<ConsoleService>>(reader);
                 }
-
             }
         }
     }
